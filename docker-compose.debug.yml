@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  web:
+    image: github-search-engine
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8080:8080
+      - 9229:9229
+    command: node --inspect=0.0.0.0:9229 index.js
+    env_file: .env

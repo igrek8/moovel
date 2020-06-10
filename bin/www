@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const server = require("../");
+
+const PORT = process.env.PORT;
+
+server.listen(PORT, () => {
+  console.log(`Service status http://localhost:${PORT}/api/status`);
+});
