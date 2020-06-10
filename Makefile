@@ -14,6 +14,19 @@ stop:
 test:
 	docker-compose run \
 		-e CI=true \
+		-e NODE_ENV=test \
 		-e PATH=$$PATH:/usr/src/node_modules/.bin \
 		-v $(pwd)/tests:/usr/src/app/tests \
 		--rm web yarn test
+
+tar:
+	tar \
+		--exclude='node_modules' \
+		--exclude='.DS_Store' \
+		--exclude='.git' \
+		--exclude='.vscode' \
+		-pcvzf moovel.tar.gz .
+
+untar:
+	mkdir moovel
+	tar -pxvzf moovel.tar.gz -C moovel

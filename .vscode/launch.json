@@ -10,7 +10,13 @@
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "envFile": "${workspaceFolder}/.env",
-      "program": "${workspaceFolder}/bin/www"
+      "program": "${workspaceFolder}/bin/www",
+      "cwd": "${workspaceFolder}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "console": "internalConsole",
+      "env": {
+        "NODE_ENV": "development"
+      }
     },
     {
       "type": "node",
